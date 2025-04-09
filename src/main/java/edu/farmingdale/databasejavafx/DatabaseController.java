@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -19,6 +20,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static edu.farmingdale.databasejavafx.MainApplication.cdbop;
+
 /**
  * @author Moaath Alrajab
  */
@@ -27,7 +30,7 @@ public class DatabaseController implements Initializable {
     private final ObservableList<Person> data =
             FXCollections.observableArrayList(
                     new Person(1, "Jacob", "Smith", "CPIS", "CS"),
-                    new Person(2, "Jacob2", "Smith1", "CPIS1", "CS")
+                    new Person(2, "Jacob2", "Smith1", "CPIS", "CS")
 
             );
 
@@ -43,6 +46,9 @@ public class DatabaseController implements Initializable {
 
     @FXML
     ImageView img_view;
+
+    @FXML
+    private TextArea feedback;
 
 
     @Override
@@ -60,8 +66,6 @@ public class DatabaseController implements Initializable {
 
     @FXML
     protected void addNewRecord() {
-
-
         data.add(new Person(
                 data.size()+1,
                 first_name.getText(),
@@ -135,5 +139,52 @@ public class DatabaseController implements Initializable {
     @FXML
     void helpButton(ActionEvent event) throws IOException {
         MainApplication.setRoot("help");
+    }
+
+    @FXML
+    void connectButton(ActionEvent event) {
+        try {
+            cdbop.connectToDatabase();
+            feedback.setText("Connected!");
+
+        } catch (Exception e) {
+            feedback.setText(String.valueOf(e));
+        }
+    }
+
+    @FXML
+    void deleteButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void displayButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void editButton(ActionEvent event) {
+
+    }
+
+
+
+    @FXML
+    void insertButton(ActionEvent event) {
+
+    }
+
+
+
+    @FXML
+    void queryButton(ActionEvent event) {
+
+    }
+
+
+
+    @FXML
+    void showImage(MouseEvent event) {
+
     }
 }

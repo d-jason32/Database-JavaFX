@@ -15,11 +15,12 @@ import java.util.Scanner;
  * @author Moaath Alrajab
  */
 public class MainApplication extends Application {
-    private static ConnDbOps cdbop;
+    public static ConnDbOps cdbop;
     private static Scene scene;
 
     public static void main(String[] args) {
         //databaseCLI(args);
+        cdbop = new ConnDbOps();
         launch();
     }
     static void setRoot(String fxml) throws IOException {

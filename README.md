@@ -33,12 +33,12 @@
 ![License](https://img.shields.io/github/license/d-jason32/Database-JavaFX)
 </div>
 
-![App Screenshot](img.png)
-![App Screenshot](img_1.png)
-![App Screenshot](img_2.png)
-![App Screenshot](img_3.png)
-![App Screenshot](img_4.png)
-![App Screenshot](img_6.png)
+![App Screenshot](assets/img.png)
+![App Screenshot](assets/img_1.png)
+![App Screenshot](assets/img_2.png)
+![App Screenshot](assets/img_3.png)
+![App Screenshot](assets/img_4.png)
+![App Screenshot](assets/img_6.png)
 
 # ADD last image
 

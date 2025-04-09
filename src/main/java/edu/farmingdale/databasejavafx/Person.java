@@ -1,10 +1,10 @@
 package edu.farmingdale.databasejavafx;
 
 /**
+ * Represents a person object.
  * @author Moaath Alrajab
  */
 public class Person {
-
     private Integer id;
     private String firstName;
     private String lastName;
