@@ -1,5 +1,4 @@
-# Student Management Tool
-
+<h1 align="center">Student Management Tool</h1>
 <div align="center">
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
