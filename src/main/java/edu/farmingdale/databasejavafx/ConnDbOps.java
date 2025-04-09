@@ -92,6 +92,50 @@ public class ConnDbOps {
         }
     }
 
+    public String queryUser(String id) {
+        String completeString = "";
+
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "SELECT * FROM users WHERE id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int idNum = resultSet.getInt("id");
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+                String department = resultSet.getString("department");
+                String major = resultSet.getString("major");
+                completeString = "ID: " + idNum + ", First name: " + firstName + ", Last name: " + lastName + ", Department: " + department + ", Major: " + major;
+            }
+
+            preparedStatement.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return completeString;
+    }
+
+    public void delete(String id) {
+
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "DELETE FROM users WHERE id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+            int deleted = preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public  void listAllUsers() {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -164,4 +208,21 @@ public class ConnDbOps {
         }
     }
 
+    public void editUser(String idNum, String firstName, String lastName, String dept, String major) throws SQLException {
+        String sql = "UPDATE users SET first_name = ?, last_name = ?, department = ?, major = ? WHERE id = ?";;
+        try{
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(5, idNum);
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, dept);
+            preparedStatement.setString(4, major);
+
+            int rowsUpdated = preparedStatement.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

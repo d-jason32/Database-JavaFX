@@ -17,6 +17,7 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import static edu.farmingdale.databasejavafx.MainApplication.cdbop;
 
@@ -141,22 +142,38 @@ public class DatabaseController implements Initializable {
         } catch (Exception e) {
             feedback.setText(String.valueOf(e));
         }
+        display();
     }
 
     @FXML
     void deleteByID(ActionEvent event) {
-
+        cdbop.delete(id.getText());
+        display();
+        feedback.setText("Deleted!");
     }
 
     @FXML
     void displayButton(ActionEvent event) {
+        display();
+    }
+
+    void display(){
         data.clear();
         data.addAll(cdbop.displayAllUsers());
         tv.setItems(data);
     }
 
     @FXML
-    void editButton(ActionEvent event) {
+    void editButton(ActionEvent event) throws SQLException {
+        String num = id.getText();
+        String firstName = first_name.getText();
+        String lastName = last_name.getText();
+        String dept = department.getText();
+        String majorText = major.getText();
+
+        cdbop.editUser(num, firstName, lastName, dept, majorText);
+        feedback.setText("Edit user: " + firstName + " " + lastName);
+        display();
 
     }
 
@@ -170,20 +187,14 @@ public class DatabaseController implements Initializable {
 
         cdbop.insertUser(num, firstName, lastName, dept, majorText);
         feedback.setText("Added user: " + firstName + " " + lastName);
+        display();
     }
 
     @FXML
     void queryButton(ActionEvent event) {
         String userID = id.getText();
-        cdbop.queryUserById(userID);
+        String s = cdbop.queryUser(userID);
+        feedback.setText(s);
     }
 
-    @FXML
-    void disconnectButton(ActionEvent event) {
-
-    }
-
-    void updateTable(){
-
-    }
 }
