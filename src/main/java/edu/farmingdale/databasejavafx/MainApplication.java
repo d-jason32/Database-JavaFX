@@ -32,7 +32,7 @@ public class MainApplication extends Application {
         return fxmlLoader.load();
     }
 
-    private Stage primaryStage;
+    public Stage primaryStage;
 
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;

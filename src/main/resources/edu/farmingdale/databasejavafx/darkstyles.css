@@ -29,21 +29,20 @@
     -fx-background-color: #FFFFFF;
 }
 
-
-#button1, button2, button3 {
-    -fx-background-color: #007ACC;
+#button1 {
+    -fx-background-color: #1C1C1E;
     -fx-text-fill: white;
     -fx-padding: 8 16;
 }
 
 #button2 {
-    -fx-background-color: #007ACC;
+    -fx-background-color: #1C1C1E;
     -fx-text-fill: white;
     -fx-padding: 8 16;
 }
 
 #button3 {
-    -fx-background-color: #007ACC;
+    -fx-background-color: #1C1C1E;
     -fx-text-fill: white;
     -fx-padding: 8 16;
 }
@@ -52,6 +51,7 @@
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 8;
     -fx-padding: 20;
+
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 10, 0.2, 0, 4);
 }
 
@@ -71,12 +71,12 @@
 }
 
 #themeButton {
-    -fx-background-color: #007ACC;
+    -fx-background-color: #1C1C1E;
     -fx-text-fill: white;
 }
 
 #logoutButton {
-    -fx-background-color: #007ACC;
+    -fx-background-color: #1C1C1E;
     -fx-text-fill: white;
 }
 
@@ -87,4 +87,8 @@
 
 #borderPane {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #e0f7ff, #007ACC);
+}
+
+#menuBorder {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #0D1B2A, #007ACC);
 }

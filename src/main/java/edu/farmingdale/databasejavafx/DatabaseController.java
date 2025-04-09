@@ -131,4 +131,9 @@ public class DatabaseController implements Initializable {
         major.setText(p.getMajor());
 
     }
+
+    @FXML
+    void helpButton(ActionEvent event) throws IOException {
+        MainApplication.setRoot("help");
+    }
 }

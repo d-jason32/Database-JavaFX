@@ -11,11 +11,11 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.farmingdale.databasejavafx.ProfileController">
     <center>
-        <StackPane fx:id="loginBox" maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
+        <StackPane fx:id="loginBox" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="260.0" BorderPane.alignment="CENTER">
             <children>
-                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="170.0">
                     <children>
-                  <ImageView fitHeight="109.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="83.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/profile.jpg" />
                      </image>
@@ -48,6 +48,11 @@
                                 <Insets bottom="10.0" />
                             </VBox.margin>
                         </Button>
+                  <Button fx:id="registerButton1" layoutX="20.0" layoutY="280.0" mnemonicParsing="false" onAction="#uploadProfileButton" prefHeight="25.0" prefWidth="200.0" text="Upload Profile Picture">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Button>
                         <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="25.0" prefWidth="200.0" text="Back" />
                     </children>
                     <padding>
