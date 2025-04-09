@@ -1,6 +1,4 @@
-<p align="center">
-  Add Gif
-</p>
+# Student Management Tool
 
 <div align="center">
 
@@ -50,7 +48,9 @@
 - [📝 License](#-license)
 
 ## 💬 Introduction
-This project 
+This project is a full stack desktop student management application that connects to an Azure MySQL Flexible server. 
+Users are able to add students to the database and update a JavaFX TableView to see the complete database. It features a modern
+user interface with a splash screen, registration page, profile page, main menu with dark mode, and the database guided user interface.
 
 ## 🚀 Features
 - Connects to a Remote Azure MySQL Flexible Server
