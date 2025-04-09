@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-
 import java.io.IOException;
 
 public class MainMenuController {
@@ -45,16 +44,14 @@ public class MainMenuController {
 
     @FXML
     void changeToDark(ActionEvent event) {
-
         ObservableList<String> stylesheets = menuBorder.getStylesheets();
-        stylesheets.clear(); // remove current theme
+        stylesheets.clear();
 
         if (isDarkMode) {
             stylesheets.add(getClass().getResource("styles.css").toExternalForm());
         } else {
             stylesheets.add(getClass().getResource("darkstyles.css").toExternalForm());
         }
-
         isDarkMode = !isDarkMode;
     }
 }

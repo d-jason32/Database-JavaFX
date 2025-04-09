@@ -14,7 +14,6 @@ public class Person {
     public Person() {
     }
 
-
     public Person(Integer id, String firstName, String lastName, String dept, String major) {
         this.id = id;
         this.firstName = firstName;
@@ -22,7 +21,6 @@ public class Person {
         this.major = major;
         this.dept = dept;
     }
-
 
     public Integer getId() {
         return id;
@@ -32,7 +30,6 @@ public class Person {
         this.id = id;
     }
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -40,7 +37,6 @@ public class Person {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
 
     public String getLastName() {
         return lastName;
@@ -50,7 +46,6 @@ public class Person {
         this.lastName = lastName;
     }
 
-
     public String getMajor() {
         return major;
     }
@@ -59,7 +54,6 @@ public class Person {
         this.major = major;
     }
 
-
     public String getDept() {
         return dept;
     }
@@ -67,6 +61,4 @@ public class Person {
     public void setDept(String dept) {
         this.dept = dept;
     }
-
-
 }

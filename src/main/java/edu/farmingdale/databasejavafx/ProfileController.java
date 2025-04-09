@@ -9,12 +9,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ProfileController {
-
     @FXML
     void backButtonAction(ActionEvent event) throws IOException {
         MainApplication.setRoot("main_menu");
     }
 
+    /**
+     * Allows you to open the finder application.
+     * @param event
+     */
     @FXML
     void uploadProfileButton(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
