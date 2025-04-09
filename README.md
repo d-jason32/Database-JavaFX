@@ -49,9 +49,40 @@
 - [📝 License](#-license)
 
 ## 💬 Introduction
+This project 
 
 ## 🚀 Features
-
+- Connects to a Remote Azure MySQL Flexible Server
+- Displays all Students in a JavaFX TableView
+- Insert students into the table with 
+  - ID Number
+  - First Name
+  - Last Name
+  - Department
+  - Major
+- Connect to the Database
+- Query students by their ID
+- Edit existing students
+- Delete students from the table
+- Display the entire table
+- Keyboard Shortcuts
+- File Upload
+- User interface
+  - Splash Screen
+  - Login Page
+  - Registration Page
+  - Menu Page (Dark Mode)
+  - Profile Page
+  - Database Manager
+  - Help Page
+  
 ## 🧰 Tech Stack
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![JavaFX](https://img.shields.io/badge/javafx-%23FF0000.svg?style=for-the-badge&logo=javafx&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+![macOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 
 ## 📝 License
