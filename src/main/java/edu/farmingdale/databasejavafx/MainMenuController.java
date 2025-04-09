@@ -46,7 +46,9 @@ public class MainMenuController {
     void changeToDark(ActionEvent event) {
         ObservableList<String> stylesheets = menuBorder.getStylesheets();
         stylesheets.clear();
-
+        /*
+        If the stylesheet is in light mode, change it to dark mode.
+         */
         if (isDarkMode) {
             stylesheets.add(getClass().getResource("styles.css").toExternalForm());
         } else {

@@ -13,8 +13,8 @@ public class RegistrationController {
 
     /**
      * If the back button is clicked, the application changes to the login screen.
-     * @param actionEvent
-     * @throws IOException
+     * @param actionEvent the event triggered by clicking the back button
+     * @throws IOException if the FXML file cannot be loaded
      */
     public void backButtonAction(ActionEvent actionEvent) throws IOException {
         MainApplication.setRoot("login");

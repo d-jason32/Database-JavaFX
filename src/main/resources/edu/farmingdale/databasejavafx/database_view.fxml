@@ -58,29 +58,34 @@
                <children>
                       <VBox alignment="CENTER" prefHeight="741.0" prefWidth="447.0" stylesheets="@styles.css">
                           <children>
+                        <TextField fx:id="id" layoutX="97.0" layoutY="185.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" promptText="ID">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </TextField>
                               <TextField fx:id="first_name" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" promptText="First Name">
                                   <VBox.margin>
-                                      <Insets left="10.0" right="10.0" top="5.0" />
+                                      <Insets bottom="15.0" left="10.0" right="10.0" top="5.0" />
                                   </VBox.margin>
                               </TextField>
                               <TextField fx:id="last_name" maxWidth="-Infinity" prefWidth="200.0" promptText="Last Name">
                                   <VBox.margin>
-                                      <Insets left="10.0" right="10.0" top="5.0" />
+                                      <Insets bottom="15.0" left="10.0" right="10.0" top="5.0" />
                                   </VBox.margin>
                               </TextField>
                               <TextField fx:id="department" maxWidth="-Infinity" prefWidth="200.0" promptText="Department">
                                   <VBox.margin>
-                                      <Insets left="10.0" right="10.0" top="5.0" />
+                                      <Insets bottom="15.0" left="10.0" right="10.0" top="5.0" />
                                   </VBox.margin>
                               </TextField>
                               <TextField fx:id="major" maxWidth="-Infinity" prefWidth="200.0" promptText="Major">
                                   <VBox.margin>
-                                      <Insets left="10.0" right="10.0" top="5.0" />
+                                      <Insets bottom="15.0" left="10.0" right="10.0" top="5.0" />
                                   </VBox.margin>
                               </TextField>
                         <TextArea fx:id="feedback" prefHeight="200.0" prefWidth="200.0">
                            <VBox.margin>
-                              <Insets top="10.0" />
+                              <Insets left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </TextArea>
                           </children>
@@ -102,17 +107,17 @@
                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                   </VBox.margin>
                         </Button>
-                              <Button mnemonicParsing="false" onAction="#queryButton" styleClass="nav_btn" text="Query">
+                              <Button mnemonicParsing="false" onAction="#queryButton" styleClass="nav_btn" text="Query ID">
                                   <VBox.margin>
                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                   </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#deleteButton" styleClass="nav_btn" text="Delete">
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteByID" styleClass="nav_btn" text="Delete ID">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#editButton" styleClass="nav_btn" text="Edit">
+                        <Button mnemonicParsing="false" onAction="#editButton" styleClass="nav_btn" text="Edit ID">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -127,7 +132,10 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </Button>
-                        <Button layoutX="20.0" layoutY="571.0" mnemonicParsing="false" onAction="#mainMenuButton" styleClass="nav_btn" text="Disconnect" />
+                        <Button layoutX="20.0" layoutY="571.0" mnemonicParsing="false" onAction="#disconnectButton" styleClass="nav_btn" text="Disconnect">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Button>
                      </children>
                   </VBox>
                </children>

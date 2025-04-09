@@ -12,27 +12,27 @@ import java.util.Scanner;
 
 /**
  * @author Moaath Alrajab
+ * @author Jason Devaraj
  */
 public class MainApplication extends Application {
     public static ConnDbOps cdbop;
     private static Scene scene;
+    public Stage primaryStage;
 
     public static void main(String[] args) {
         //databaseCLI(args);
         cdbop = new ConnDbOps();
         launch();
     }
+
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxml + ".fxml"));
-
         return fxmlLoader.load();
     }
-
-    public Stage primaryStage;
 
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -46,10 +46,7 @@ public class MainApplication extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
-
 
     public void changeScene() {
         try {
@@ -62,69 +59,69 @@ public class MainApplication extends Application {
             fadeOut.setFromValue(1);
             fadeOut.setToValue(0);
             fadeOut.setOnFinished(e -> {
-
                 scene.setRoot(newRoot);
-
             });
             fadeOut.play();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     private static void databaseCLI(String[] args) {
         cdbop = new ConnDbOps();
         Scanner scan = new Scanner(System.in);
-
         char input;
+
         do {
             System.out.println(" ");
             System.out.println("============== Menu ==============");
             System.out.println("| To connect to DB,       press 'c' |");
             System.out.println("| To display all users,   press 'a' |");
             System.out.println("| To insert to the DB,    press 'i' |");
-            System.out.println("| To query by name,       press 'q' |");
+            System.out.println("| To query by ID,       press 'q' |");
             System.out.println("| To exit,                press 'e' |");
             System.out.println("===================================");
             System.out.print("Enter your choice: ");
             input = scan.next().charAt(0);
 
             switch (input) {
-
                 case 'c':
-                    cdbop.connectToDatabase(); //Your existing method
+                    cdbop.connectToDatabase();
                     break;
+
                 case 'a':
                     cdbop.listAllUsers(); //all users in DB
                     break;
 
                 case 'i':
-                    System.out.print("Enter Name: ");
-                    String name = scan.next();
-                    System.out.print("Enter Email: ");
-                    String email = scan.next();
-                    System.out.print("Enter Phone: ");
-                    String phone = scan.next();
-                    System.out.print("Enter Address: ");
-                    String address = scan.next();
-                    System.out.print("Enter Password: ");
-                    String password = scan.next();
-                    cdbop.insertUser(name, email, phone, address, password); //Your insertUser method
+                    System.out.print("Enter id: ");
+                    String id = scan.next();
+                    System.out.print("Enter first name: ");
+                    String first_name = scan.next();
+                    System.out.print("Enter last name: ");
+                    String last_name = scan.next();
+                    System.out.print("Enter department: ");
+                    String department = scan.next();
+                    System.out.print("Enter major: ");
+                    String major = scan.next();
+                    cdbop.insertUser(id, first_name, last_name, department, major);
                     break;
+
                 case 'q':
                     System.out.print("Enter the name to query: ");
                     String queryName = scan.next();
-                    cdbop.queryUserByName(queryName); //Your queryUserByName method
+                    cdbop.queryUserById(queryName); //Your queryUserByName method
                     break;
+
                 case 'e':
                     System.out.println("Exiting...");
                     break;
+
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
             System.out.println(" ");
         } while (input != 'e');
-
         scan.close();
-
     }
 }

@@ -8,12 +8,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-
 import java.io.IOException;
 
 public class HelpController {
-
-
     @FXML
     private Button backButton;
 
@@ -37,5 +34,4 @@ public class HelpController {
         paragraph.setFont(Font.font("Segoe UI", 14));
         words.getChildren().add(paragraph);
     }
-
 }

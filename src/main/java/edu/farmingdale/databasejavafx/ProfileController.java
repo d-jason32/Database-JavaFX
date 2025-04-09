@@ -16,7 +16,7 @@ public class ProfileController {
 
     /**
      * Allows you to open the finder application.
-     * @param event
+     * @param event the event triggered by clicking the upload button.
      */
     @FXML
     void uploadProfileButton(ActionEvent event) {

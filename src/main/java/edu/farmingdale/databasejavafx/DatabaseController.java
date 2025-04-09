@@ -14,33 +14,26 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import static edu.farmingdale.databasejavafx.MainApplication.cdbop;
 
 /**
  * @author Moaath Alrajab
+ * @author Jason Devaraj
  */
 public class DatabaseController implements Initializable {
-
-    private final ObservableList<Person> data =
-            FXCollections.observableArrayList(
-                    new Person(1, "Jacob", "Smith", "CPIS", "CS"),
-                    new Person(2, "Jacob2", "Smith1", "CPIS", "CS")
-
-            );
-
-
     @FXML
-    TextField first_name, last_name, department, major;
+    TextField id, first_name, last_name, department, major;
+
     @FXML
     private TableView<Person> tv;
+
     @FXML
     private TableColumn<Person, Integer> tv_id;
+
     @FXML
     private TableColumn<Person, String> tv_fn, tv_ln, tv_dept, tv_major;
 
@@ -50,6 +43,12 @@ public class DatabaseController implements Initializable {
     @FXML
     private TextArea feedback;
 
+    private final ObservableList<Person> data =
+            FXCollections.observableArrayList(
+                    new Person(1, "Jacob", "Smith", "CPIS", "CS"),
+                    new Person(2, "Jacob2", "Smith1", "CPIS", "CS")
+
+            );
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,10 +58,8 @@ public class DatabaseController implements Initializable {
         tv_dept.setCellValueFactory(new PropertyValueFactory<>("dept"));
         tv_major.setCellValueFactory(new PropertyValueFactory<>("major"));
 
-
         tv.setItems(data);
     }
-
 
     @FXML
     protected void addNewRecord() {
@@ -88,7 +85,6 @@ public class DatabaseController implements Initializable {
         System.exit(0);
     }
 
-
     @FXML
     protected void editRecord() {
         Person p= tv.getSelectionModel().getSelectedItem();
@@ -110,14 +106,11 @@ public class DatabaseController implements Initializable {
         data.remove(p);
     }
 
-
-
     @FXML
     protected void showImage() {
         File file= (new FileChooser()).showOpenDialog(img_view.getScene().getWindow());
         if(file!=null){
             img_view.setImage(new Image(file.toURI().toString()));
-
         }
     }
 
@@ -133,7 +126,6 @@ public class DatabaseController implements Initializable {
         last_name.setText(p.getLastName());
         department.setText(p.getDept());
         major.setText(p.getMajor());
-
     }
 
     @FXML
@@ -145,21 +137,22 @@ public class DatabaseController implements Initializable {
     void connectButton(ActionEvent event) {
         try {
             cdbop.connectToDatabase();
-            feedback.setText("Connected!");
-
+            feedback.setText("Connected to " + cdbop.MYSQL_SERVER_URL);
         } catch (Exception e) {
             feedback.setText(String.valueOf(e));
         }
     }
 
     @FXML
-    void deleteButton(ActionEvent event) {
+    void deleteByID(ActionEvent event) {
 
     }
 
     @FXML
     void displayButton(ActionEvent event) {
-
+        data.clear();
+        data.addAll(cdbop.displayAllUsers());
+        tv.setItems(data);
     }
 
     @FXML
@@ -167,24 +160,30 @@ public class DatabaseController implements Initializable {
 
     }
 
-
-
     @FXML
     void insertButton(ActionEvent event) {
+        String num = id.getText();
+        String firstName = first_name.getText();
+        String lastName = last_name.getText();
+        String dept = department.getText();
+        String majorText = major.getText();
 
+        cdbop.insertUser(num, firstName, lastName, dept, majorText);
+        feedback.setText("Added user: " + firstName + " " + lastName);
     }
-
-
 
     @FXML
     void queryButton(ActionEvent event) {
+        String userID = id.getText();
+        cdbop.queryUserById(userID);
+    }
+
+    @FXML
+    void disconnectButton(ActionEvent event) {
 
     }
 
-
-
-    @FXML
-    void showImage(MouseEvent event) {
+    void updateTable(){
 
     }
 }
