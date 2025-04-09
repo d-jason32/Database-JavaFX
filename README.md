@@ -48,7 +48,6 @@
 - [🚀 Features](#-features)
 - [🧰 Tech Stack](#-tech-stack)
 - [📝 License](#-license)
-- [🙏 Acknowledgments](#-acknowledgments)
 
 ## 💬 Introduction
 
