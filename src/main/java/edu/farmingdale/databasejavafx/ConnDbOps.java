@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Methods for database use.
  * @author MoaathAlrajab
  * @author Jason Devaraj
  */
@@ -20,6 +20,10 @@ public class ConnDbOps {
     final String USERNAME = "reapply";
     final String PASSWORD = "gnGFVdyMCgp1ra";
 
+    /**
+     * Method to connect to a database.
+     * @return
+     */
     public  boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
 
@@ -66,16 +70,19 @@ public class ConnDbOps {
         return hasRegistredUsers;
     }
 
+    /**
+     * Method to search for a student using an id number.
+     * @param id
+     */
     public  void queryUserById(String id) {
-
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            // Select all where the id matches the student
             String sql = "SELECT * FROM users WHERE id = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-
             while (resultSet.next()) {
                 int idNum = resultSet.getInt("id");
                 String firstName = resultSet.getString("first_name");
@@ -92,11 +99,17 @@ public class ConnDbOps {
         }
     }
 
+    /**
+     * Method to search for a student using an id number.
+     * @param id
+     * @return
+     */
     public String queryUser(String id) {
         String completeString = "";
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            // Select all where the id matches the student
             String sql = "SELECT * FROM users WHERE id = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, id);
@@ -111,7 +124,6 @@ public class ConnDbOps {
                 String major = resultSet.getString("major");
                 completeString = "ID: " + idNum + ", First name: " + firstName + ", Last name: " + lastName + ", Department: " + department + ", Major: " + major;
             }
-
             preparedStatement.close();
             conn.close();
         } catch (SQLException e) {
@@ -120,10 +132,15 @@ public class ConnDbOps {
         return completeString;
     }
 
+    /**
+     * Method to delete a user.
+     * @param id
+     */
     public void delete(String id) {
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            // Delete a specific user whose id matches a student.
             String sql = "DELETE FROM users WHERE id = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, id);
@@ -136,6 +153,9 @@ public class ConnDbOps {
         }
     }
 
+    /**
+     * Method to list all the users.
+     */
     public  void listAllUsers() {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -160,6 +180,10 @@ public class ConnDbOps {
         }
     }
 
+    /**
+     * Method to return a list that contains all users in the database.
+     * @return A list of type person
+     */
     public List<Person> displayAllUsers() {
         List<Person> users = new ArrayList<>();
         try {
@@ -186,6 +210,14 @@ public class ConnDbOps {
         return users;
     }
 
+    /**
+     * Inserts a user into the database.
+     * @param id
+     * @param first_name
+     * @param last_name
+     * @param department
+     * @param major
+     */
     public  void insertUser(String id, String first_name, String last_name, String department, String major) {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -208,6 +240,15 @@ public class ConnDbOps {
         }
     }
 
+    /**
+     * Edits a student in the database if given the id number.
+     * @param idNum
+     * @param firstName
+     * @param lastName
+     * @param dept
+     * @param major
+     * @throws SQLException
+     */
     public void editUser(String idNum, String firstName, String lastName, String dept, String major) throws SQLException {
         String sql = "UPDATE users SET first_name = ?, last_name = ?, department = ?, major = ? WHERE id = ?";;
         try{

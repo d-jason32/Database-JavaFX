@@ -9,6 +9,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ProfileController {
+    /**
+     * Goes back to the main menu from the profile page.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void backButtonAction(ActionEvent event) throws IOException {
         MainApplication.setRoot("main_menu");

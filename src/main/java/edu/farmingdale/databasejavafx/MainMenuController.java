@@ -22,26 +22,40 @@ public class MainMenuController {
 
     boolean isDarkMode = false;
 
+    /**
+     * Change from main menu to database.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goToDatabase(ActionEvent event) throws IOException {
         MainApplication.setRoot("database_view");
     }
 
-    @FXML
-    void goToHelpPage(ActionEvent event) {
-
-    }
-
+    /**
+     * Change from main menu to profile.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goToProfile(ActionEvent event) throws IOException {
         MainApplication.setRoot("profile");
     }
 
+    /**
+     * Change from main menu to log in screen.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void logoutButton(ActionEvent event) throws IOException {
         MainApplication.setRoot("login");
     }
 
+    /**
+     * Switches from light to dark and vice versa.
+     * @param event
+     */
     @FXML
     void changeToDark(ActionEvent event) {
         ObservableList<String> stylesheets = menuBorder.getStylesheets();

@@ -20,11 +20,21 @@ public class LoginController {
     @FXML
     private Button registerButton;
 
+    /**
+     * Go from log in to the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void loginButtonAction(ActionEvent event) throws IOException {
         MainApplication.setRoot("main_menu");
     }
 
+    /**
+     * Go from login to registration.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void registerButtonAction(ActionEvent event) throws IOException {
         MainApplication.setRoot("registration");

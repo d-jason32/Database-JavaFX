@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 import static edu.farmingdale.databasejavafx.MainApplication.cdbop;
 
 /**
+ * Class that connects a database to the GUI.
  * @author Moaath Alrajab
  * @author Jason Devaraj
  */
@@ -51,6 +52,11 @@ public class DatabaseController implements Initializable {
 
             );
 
+    /**
+     * Initializes table view.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tv_id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -62,51 +68,9 @@ public class DatabaseController implements Initializable {
         tv.setItems(data);
     }
 
-    @FXML
-    protected void addNewRecord() {
-        data.add(new Person(
-                data.size()+1,
-                first_name.getText(),
-                last_name.getText(),
-                department.getText(),
-                major.getText()
-        ));
-    }
-
-    @FXML
-    protected void clearForm() {
-        first_name.clear();
-        last_name.setText("");
-        department.setText("");
-        major.setText("");
-    }
-
-    @FXML
-    protected void closeApplication() {
-        System.exit(0);
-    }
-
-    @FXML
-    protected void editRecord() {
-        Person p= tv.getSelectionModel().getSelectedItem();
-        int c=data.indexOf(p);
-        Person p2= new Person();
-        p2.setId(c+1);
-        p2.setFirstName(first_name.getText());
-        p2.setLastName(last_name.getText());
-        p2.setDept(department.getText());
-        p2.setMajor(major.getText());
-        data.remove(c);
-        data.add(c,p2);
-        tv.getSelectionModel().select(c);
-    }
-
-    @FXML
-    protected void deleteRecord() {
-        Person p= tv.getSelectionModel().getSelectedItem();
-        data.remove(p);
-    }
-
+    /**
+     * Opens finder to select an image.
+     */
     @FXML
     protected void showImage() {
         File file= (new FileChooser()).showOpenDialog(img_view.getScene().getWindow());
@@ -115,11 +79,20 @@ public class DatabaseController implements Initializable {
         }
     }
 
+    /**
+     * Change from the database to the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void mainMenuButton(ActionEvent event) throws IOException {
         MainApplication.setRoot("main_menu");
     }
 
+    /**
+     * Allows you to select an item in a table.
+     * @param mouseEvent
+     */
     @FXML
     protected void selectedItemTV(MouseEvent mouseEvent) {
         Person p= tv.getSelectionModel().getSelectedItem();
@@ -129,11 +102,20 @@ public class DatabaseController implements Initializable {
         major.setText(p.getMajor());
     }
 
+    /**
+     * Open up a page that shows the help screen.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void helpButton(ActionEvent event) throws IOException {
         MainApplication.setRoot("help");
     }
 
+    /**
+     * Method to connect to a database.
+     * @param event
+     */
     @FXML
     void connectButton(ActionEvent event) {
         try {
@@ -145,6 +127,10 @@ public class DatabaseController implements Initializable {
         display();
     }
 
+    /**
+     * Method to enter student id and delete it from the database.
+     * @param event
+     */
     @FXML
     void deleteByID(ActionEvent event) {
         cdbop.delete(id.getText());
@@ -152,17 +138,29 @@ public class DatabaseController implements Initializable {
         feedback.setText("Deleted!");
     }
 
+    /**
+     * Assigns display to the display button.
+     * @param event
+     */
     @FXML
     void displayButton(ActionEvent event) {
         display();
     }
 
+    /**
+     * Adds database to the table view.
+     */
     void display(){
         data.clear();
         data.addAll(cdbop.displayAllUsers());
         tv.setItems(data);
     }
 
+    /**
+     * Edit a student record based on their id.
+     * @param event
+     * @throws SQLException
+     */
     @FXML
     void editButton(ActionEvent event) throws SQLException {
         String num = id.getText();
@@ -177,6 +175,10 @@ public class DatabaseController implements Initializable {
 
     }
 
+    /**
+     * Insert student into the database.
+     * @param event
+     */
     @FXML
     void insertButton(ActionEvent event) {
         String num = id.getText();
@@ -190,6 +192,11 @@ public class DatabaseController implements Initializable {
         display();
     }
 
+    /**
+     * Query button gets the id from the text field, searches the database
+     * and displays the entire Person.
+     * @param event
+     */
     @FXML
     void queryButton(ActionEvent event) {
         String userID = id.getText();

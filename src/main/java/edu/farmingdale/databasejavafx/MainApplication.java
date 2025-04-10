@@ -20,6 +20,7 @@ public class MainApplication extends Application {
     public Stage primaryStage;
 
     public static void main(String[] args) {
+        // Remove comment to use CLI
         //databaseCLI(args);
         cdbop = new ConnDbOps();
         launch();

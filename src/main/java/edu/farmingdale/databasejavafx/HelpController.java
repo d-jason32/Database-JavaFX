@@ -30,8 +30,26 @@ public class HelpController {
 
     @FXML
     void load(){
-        Text paragraph = new Text("This is a nice block of text to read comfortably. This is a nice block of text to read comfortably.This is a nice block of text to read comfortably.This is a nice block of text to read comfortably.");
-        paragraph.setFont(Font.font("Segoe UI", 14));
+        Text paragraph = new Text("""
+                                        How do you use connect? Just press connect, the data base is already 
+                                        configured to connect.
+                                        
+                                        How to use Display All? Make sure you are connected to the database and 
+                                        just click the button.
+                                        
+                                        How to use insert? Put every single field into the textfields and 
+                                        press insert.
+                                        
+                                        How to use query ID? Just enter the ID of the person and click on the 
+                                        button. 
+                                        
+                                        How to use delete id?Enter the ID of the person and click 
+                                        on the button.
+                                        
+                                        How to use edit ID? Enter the ID of the person and click on the 
+                                        button.
+                                      """);
+        paragraph.setFont(Font.font("Segoe UI", 8));
         words.getChildren().add(paragraph);
     }
 }

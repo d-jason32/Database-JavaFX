@@ -3,6 +3,7 @@ package edu.farmingdale.databasejavafx;
 /**
  * Represents a person object.
  * @author Moaath Alrajab
+ * @author Jason Devaraj
  */
 public class Person {
     private Integer id;

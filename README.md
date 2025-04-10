@@ -65,7 +65,6 @@ user interface with a splash screen, registration page, profile page, main menu 
 - Edit existing students
 - Delete students from the table
 - Display the entire table
-- Keyboard Shortcuts
 - File Upload
 - User interface
   - Splash Screen
